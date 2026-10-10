@@ -4,6 +4,11 @@ A Jeopardy-style party game with a glittery mermaid theme. Categories across
 the top, dollar tiles below, and clues that reveal one word at a time so the
 room can race to buzz in.
 
+**Play it: https://umairsuleman.github.io/bday_jeopardy/**
+
+The hosted version covers the board, the slow reveal, and keyboard buzzers.
+Phone buzzers need the local server — see below.
+
 ## Running it
 
 ```bash
