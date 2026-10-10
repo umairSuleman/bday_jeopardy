@@ -103,94 +103,94 @@ export const GAME: GameContent = {
     },
 
     {
-      name: 'Under the Sea',
+      name: '5th Grade Science',
       clues: [
         {
           value: 200,
-          clue: 'Stretching some 1,400 miles along the Australian coast, this is the largest living structure on Earth.',
-          response: 'What is the Great Barrier Reef?'
+          clue: 'This force keeps your feet on the ground and brings a tossed ball back down.',
+          response: 'What is gravity?'
         },
         {
           value: 400,
-          clue: 'Long before mermaids, these half-bird women of Greek myth were the ones luring sailors to their doom with song.',
-          response: 'What are the Sirens?'
+          clue: 'Heat turns liquid water into vapour through this process, the one that lifts water into the clouds.',
+          response: 'What is evaporation?'
         },
         {
           value: 600,
-          clue: 'The deepest known point in any ocean, it sits at the southern end of the Mariana Trench.',
-          response: 'What is Challenger Deep?'
+          clue: 'Plants make their own food out of sunlight, water and carbon dioxide using this process.',
+          response: 'What is photosynthesis?'
         },
         {
           value: 800,
-          clue: 'Hans Christian Andersen published this 1837 fairy tale about a sea princess who trades her voice for a pair of legs.',
-          response: 'What is "The Little Mermaid"?'
+          clue: 'Magma or lava that cools and hardens becomes this one of the three main rock types.',
+          response: 'What is igneous rock?'
         },
         {
           value: 1000,
-          clue: 'An octopus gets by on this many hearts, two pumping blood to the gills and one to the rest of the body.',
-          response: 'What is three?'
+          clue: 'Protons and neutrons are packed into the nucleus of this smallest unit of an element.',
+          response: 'What is an atom?'
         }
       ]
     },
 
     {
-      name: 'Party Games',
+      name: 'Geography',
       clues: [
         {
           value: 200,
-          clue: 'Blindfolded, spun around, and handed a paper appendage, players stumble toward a poster in this classic.',
-          response: 'What is Pin the Tail on the Donkey?'
+          clue: 'Covering about a third of the planet, it is the largest and deepest of the oceans.',
+          response: 'What is the Pacific Ocean?'
         },
         {
           value: 400,
-          clue: 'Candy rains down when this papier-mâché figure finally gives way to the stick.',
-          response: 'What is a piñata?'
+          clue: 'This river runs north through Egypt and empties into the Mediterranean Sea.',
+          response: 'What is the Nile?'
         },
         {
           value: 600,
-          clue: 'Players circle a row of seats with one chair too few, and the music stopping is the whole point of this game.',
-          response: 'What is musical chairs?'
+          clue: 'Climbers reach the summit of Mount Everest from Nepal or from this country on its northern side.',
+          response: 'What is China?'
         },
         {
           value: 800,
-          clue: 'This reverse hide-and-seek has every seeker who finds the hider cram silently into the same spot, packing in like the fish it is named for.',
-          response: 'What is Sardines?'
+          clue: 'The largest desert on Earth is not the Sahara but this frozen continent, which gets almost no precipitation.',
+          response: 'What is Antarctica?'
         },
         {
           value: 1000,
-          clue: 'A spinner calls out limbs and colours, sending players into a knot on a mat of coloured dots in this 1966 game.',
-          response: 'What is Twister?'
+          clue: 'This narrow strait splits Istanbul between Europe and Asia.',
+          response: 'What is the Bosphorus?'
         }
       ]
     },
 
     {
-      name: 'Potluck',
+      name: 'Disney',
       clues: [
         {
           value: 200,
-          clue: 'Iron oxide dust gives this fourth planet from the Sun its nickname, the Red Planet.',
-          response: 'What is Mars?'
+          clue: 'Elsa lets her powers loose while belting "Let It Go" in this 2013 hit.',
+          response: 'What is "Frozen"?'
         },
         {
           value: 400,
-          clue: 'It is the only letter of the alphabet that does not appear in the name of any U.S. state.',
-          response: 'What is Q?'
+          clue: 'Released in 1937, it was the studio\'s first full-length animated feature.',
+          response: 'What is "Snow White and the Seven Dwarfs"?'
         },
         {
           value: 600,
-          clue: 'From the Latin "aurum," this element claims the symbol Au on the periodic table.',
-          response: 'What is gold?'
+          clue: 'This treacherous lion kills his brother Mufasa and takes over Pride Rock.',
+          response: 'Who is Scar?'
         },
         {
           value: 800,
-          clue: 'A gathering of flamingos goes by this flashy collective noun.',
-          response: 'What is a flamboyance?'
+          clue: 'Mickey Mouse made his synchronised-sound debut piloting a riverboat in this 1928 short.',
+          response: 'What is "Steamboat Willie"?'
         },
         {
           value: 1000,
-          clue: 'Gliding squirrels only glide, which leaves this creature as the only mammal capable of true, powered flight.',
-          response: 'What is a bat?'
+          clue: 'Walt originally wanted to call Mickey by this name, until his wife Lillian talked him out of it.',
+          response: 'What is Mortimer?'
         }
       ]
     }
