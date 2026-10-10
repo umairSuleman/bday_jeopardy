@@ -16,7 +16,7 @@
  * unusual ones like 5173.
  */
 import { createServer } from 'node:http';
-import { networkInterfaces } from 'node:os';
+import { candidateNote, lanCandidates } from './lan.mjs';
 
 const PORT = Number(process.env.PORT ?? 8080);
 
@@ -64,24 +64,12 @@ server.on('clientError', (error, socket) => {
   socket.destroy();
 });
 
-function candidates() {
-  const found = [];
-  for (const [name, entries] of Object.entries(networkInterfaces())) {
-    for (const entry of entries ?? []) {
-      if (entry.family !== 'IPv4' || entry.internal) continue;
-      const rank = /^(utun|ipsec|tun|tap|ppp)/i.test(name) ? 2 : /^(en|eth|wl)/i.test(name) ? 0 : 1;
-      found.push({ name, address: entry.address, rank });
-    }
-  }
-  return found.sort((a, b) => a.rank - b.rank);
-}
-
 server.listen(PORT, '0.0.0.0', () => {
   console.log('\n  ✦ Connection diagnostic listening on port ' + PORT + '\n');
   console.log('  Open these on your phone, typing the http:// prefix in full:\n');
-  for (const c of candidates()) {
-    const note = c.rank === 2 ? '   <- VPN tunnel, expected to fail' : '';
-    console.log(`    http://${c.address}:${PORT}/${note}`);
+  for (const c of lanCandidates()) {
+    const note = candidateNote(c);
+    console.log(`    http://${c.address}:${PORT}/` + (note ? `   <- ${note}` : ''));
   }
   console.log('\n  Watching for connections. Ctrl+C to stop.\n');
 });

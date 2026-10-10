@@ -1,0 +1,8 @@
+* text=auto
+
+# cmd.exe can mis-parse batch files with LF endings, so force CRLF.
+*.bat text eol=crlf
+
+# Shell launchers must keep LF, or the shebang breaks.
+*.command text eol=lf
+*.sh text eol=lf

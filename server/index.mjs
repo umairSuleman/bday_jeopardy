@@ -14,8 +14,8 @@ import { readFile, stat } from 'node:fs/promises';
 import { createHash, randomUUID } from 'node:crypto';
 import { extname, join, normalize, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { networkInterfaces } from 'node:os';
 import { WebSocketServer } from 'ws';
+import { candidateNote, lanCandidates } from './lan.mjs';
 
 const PORT = Number(process.env.PORT ?? 8787);
 // `import.meta.dirname` needs Node 20.11+, so derive it from the URL instead.
@@ -252,32 +252,6 @@ wss.on('close', () => clearInterval(pinger));
 
 /* --------------------------------- Boot --------------------------------- */
 
-/**
- * Candidate addresses guests could reach, best first.
- *
- * VPN tunnels (utun, ipsec, tun) are listed last: they are non-internal IPv4
- * addresses, so a naive "first match" picks them and prints a URL no phone can
- * ever reach. Physical interfaces (en, eth, wl) come first.
- */
-function lanCandidates() {
-  const found = [];
-
-  for (const [name, entries] of Object.entries(networkInterfaces())) {
-    for (const entry of entries ?? []) {
-      if (entry.family !== 'IPv4' || entry.internal) continue;
-      const isTunnel = /^(utun|ipsec|tun|tap|ppp)/i.test(name);
-      const isPhysical = /^(en|eth|wl)/i.test(name);
-      found.push({
-        name,
-        address: entry.address,
-        rank: isTunnel ? 2 : isPhysical ? 0 : 1
-      });
-    }
-  }
-
-  return found.sort((a, b) => a.rank - b.rank);
-}
-
 httpServer.listen(PORT, () => {
   const candidates = lanCandidates();
   const best = candidates[0];
@@ -295,8 +269,11 @@ httpServer.listen(PORT, () => {
   if (others.length) {
     console.log('\n  If that address does not load, try:');
     for (const c of others) {
-      const note = c.rank === 2 ? '  ← VPN tunnel, usually not reachable' : '';
-      console.log(`    http://${c.address}:${PORT}/#/buzz  (${c.name})${note}`);
+      const note = candidateNote(c);
+      console.log(
+        `    http://${c.address}:${PORT}/#/buzz  (${c.name})` +
+          (note ? `  <- ${note}` : '')
+      );
     }
   }
 

@@ -12,17 +12,39 @@ a server — see "Running the party" below. It's a double-click.
 
 ## Running the party (no terminal needed)
 
-On a Mac, **double-click `start-party.command`**. It sets itself up on first
-run, opens the board in your browser, and prints nothing you need to read.
+You need [Node.js](https://nodejs.org) installed — the green **LTS** button. If
+it's missing, the launcher opens the download page and tells you what to do.
 
-Then on the board page: **guests scan the QR code** to get their buzzer. They
-type a name, and that's it — one big BUZZ button. No app, no typing a URL.
+Then double-click the launcher for your machine:
 
-Everyone must be on the same wifi as the host machine. Keep the Terminal window
-that opens alongside it; closing that window stops the game.
+| Your computer | Double-click |
+| --- | --- |
+| Windows | `start-party.bat` |
+| Mac | `start-party.command` |
 
-The only prerequisite is [Node.js](https://nodejs.org) (the LTS version). If it
-isn't installed, the launcher opens the download page and tells you what to do.
+It sets itself up on first run, then opens the board in your browser.
+
+On the board page, **guests scan the QR code** to get their buzzer. They type a
+name and get one big BUZZ button. No app, no typing a URL.
+
+Everyone must be on the same wifi as the host machine. Keep the black
+Terminal/Command Prompt window open while you play; closing it stops the game.
+
+### Windows: allow it through the firewall
+
+The first time you run it, Windows will ask whether to allow Node.js through
+Windows Defender Firewall. Click **Allow access**, and make sure **Private
+networks** is ticked. If you dismiss that prompt, the game still works on the
+host's screen but phones cannot reach it.
+
+To fix it afterwards: Windows Security → Firewall & network protection → Allow
+an app through firewall → find Node.js → tick Private.
+
+### Mac: the first double-click may be blocked
+
+macOS may say the file "cannot be opened because it is from an unidentified
+developer". Right-click `start-party.command` → **Open** → **Open** confirms it
+once, and it works normally after that.
 
 ### Running it from a terminal instead
 

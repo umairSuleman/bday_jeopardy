@@ -54,15 +54,8 @@ if [ ! -d node_modules ]; then
   fi
 fi
 
-# Rebuild when the build is missing or any source file is newer than it.
-NEEDS_BUILD=0
-if [ ! -f dist/index.html ]; then
-  NEEDS_BUILD=1
-elif [ -n "$(find src index.html vite.config.ts -newer dist/index.html 2>/dev/null | head -1)" ]; then
-  NEEDS_BUILD=1
-fi
-
-if [ "$NEEDS_BUILD" -eq 1 ]; then
+# Shared with the Windows launcher; exits 0 when a rebuild is needed.
+if node server/needs-build.mjs; then
   echo "  Preparing the game..."
   echo ""
   if ! npm run build; then
