@@ -9,37 +9,33 @@ export const GAME: GameContent = {
   subtitle: 'Birthday Edition',
 
   categories: [
-    /*
-     * The answers in this category are personal, so they are left as TODOs on
-     * purpose rather than guessed at. Fill each `response` in before playing.
-     */
     {
       name: 'Mahek Questions',
       clues: [
         {
           value: 200,
           clue: 'The fast food place Mahek always ends up ordering from.',
-          response: 'TODO: fill in the answer'
+          response: "What is McDonald's?"
         },
         {
           value: 400,
           clue: 'The thing Mahek is most afraid of.',
-          response: 'TODO: fill in the answer'
+          response: 'What are insects, especially spiders?'
         },
         {
           value: 600,
           clue: "Mahek's single biggest pet peeve.",
-          response: 'TODO: fill in the answer'
+          response: 'What is chewing with your mouth open?'
         },
         {
           value: 800,
           clue: "Mahek's very first pet, and the name it went by. Both halves are needed.",
-          response: 'TODO: fill in the answer'
+          response: 'What is a parrot named Harry?'
         },
         {
           value: 1000,
-          clue: "Name one of Mahek's five favourite songs. Any of the top five counts.",
-          response: 'TODO: fill in the answer (any of the top five)'
+          clue: "Name one of Mahek's favourite songs. Anything in her top five counts.",
+          response: 'What is "Space Song" or "No One Noticed"?'
         }
       ]
     },
