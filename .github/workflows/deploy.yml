@@ -27,9 +27,13 @@ jobs:
           cache: npm
 
       # Exposes the correct /<repo>/ base path for a project site.
+      # enablement: true turns Pages on if it isn't already, so a fresh clone
+      # deploys without anyone having to flip it in Settings first.
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - run: npm ci
 
