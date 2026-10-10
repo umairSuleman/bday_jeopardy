@@ -41,6 +41,28 @@ const httpServer = createServer(async (req, res) => {
   try {
     const requestPath = new URL(req.url ?? '/', 'http://localhost').pathname;
 
+    /*
+     * The host screen needs the address a *phone* can reach, which is not the
+     * one in its own address bar: the host usually browses localhost, and a QR
+     * code of "localhost" is useless on another device. Only the server knows
+     * which interface is the real LAN one, so it reports it here.
+     */
+    if (requestPath === '/api/join') {
+      const best = lanCandidates()[0];
+      const body = JSON.stringify({
+        url: best ? `http://${best.address}:${PORT}/#/buzz` : null,
+        address: best?.address ?? null,
+        iface: best?.name ?? null,
+        port: PORT
+      });
+      res.writeHead(200, {
+        'content-type': 'application/json; charset=utf-8',
+        'cache-control': 'no-store'
+      });
+      res.end(body);
+      return;
+    }
+
     // Normalise and confine to dist so "../" cannot escape the directory.
     const relative = normalize(decodeURIComponent(requestPath)).replace(/^(\.\.[/\\])+/, '');
     let filePath = join(DIST, relative);

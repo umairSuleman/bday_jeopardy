@@ -4,6 +4,7 @@ import { GAME } from '../../game/content';
 import { clueToken, useGame } from '../../game/store';
 import { Button, Kbd, Panel, SectionLabel } from '../ui';
 import { useHostLink } from '../../buzz/useHostLink';
+import { JoinPanel } from './JoinPanel';
 import styles from './Board.module.css';
 
 export function BoardPage() {
@@ -35,7 +36,6 @@ export function BoardPage() {
   const rows = Math.max(...GAME.categories.map((c) => c.clues.length));
 
   const keyboardSlotsLeft = players.filter((p) => !p.remote).length < 6;
-  const joinUrl = `${window.location.origin}${import.meta.env.BASE_URL}#/buzz`;
 
   return (
     <>
@@ -52,7 +52,8 @@ export function BoardPage() {
           <div className={styles.rosterHead}>
             <SectionLabel as="h2">Players</SectionLabel>
             <p className={styles.rosterHint}>
-              Keyboard players get a buzzer key. Phones can join from the link below.
+              Keyboard players get a buzzer key. Phones join by scanning the code
+              below.
             </p>
           </div>
 
@@ -118,25 +119,9 @@ export function BoardPage() {
             </ul>
           )}
 
-          <div className={styles.linkRow}>
-            <span>
-              <span
-                className={`${styles.dot} ${link.connected ? styles.dotLive : ''}`}
-              />
-              {link.connected ? 'Phone buzzers live' : 'Phone buzzers offline'}
-            </span>
-            {link.connected ? (
-              <span>
-                Guests join at <span className={styles.joinUrl}>{joinUrl}</span>
-              </span>
-            ) : (
-              <span className={styles.empty}>
-                Run <span className={styles.joinUrl}>npm run party</span> to let
-                guests buzz from their phones. Keyboard buzzers work regardless.
-              </span>
-            )}
-          </div>
         </Panel>
+
+        <JoinPanel connected={link.connected} />
 
         {/* ------------------------------ Board ------------------------------ */}
         <section className={styles.boardWrap} aria-label="Game board">

@@ -7,26 +7,36 @@ room can race to buzz in.
 **Play it: https://umairsuleman.github.io/bday_jeopardy/**
 
 The hosted version covers the board, the slow reveal, and keyboard buzzers.
-Phone buzzers need the local server — see below.
+Phone buzzers need the host to run it locally, because a static site cannot run
+a server — see "Running the party" below. It's a double-click.
 
-## Running it
+## Running the party (no terminal needed)
+
+On a Mac, **double-click `start-party.command`**. It sets itself up on first
+run, opens the board in your browser, and prints nothing you need to read.
+
+Then on the board page: **guests scan the QR code** to get their buzzer. They
+type a name, and that's it — one big BUZZ button. No app, no typing a URL.
+
+Everyone must be on the same wifi as the host machine. Keep the Terminal window
+that opens alongside it; closing that window stops the game.
+
+The only prerequisite is [Node.js](https://nodejs.org) (the LTS version). If it
+isn't installed, the launcher opens the download page and tells you what to do.
+
+### Running it from a terminal instead
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173
-```
-
-That is all you need for a game played on one screen with keyboard buzzers.
-
-### Playing with phone buzzers
-
-```bash
 npm run party      # builds, then serves on http://localhost:8787
 ```
 
-Open the host screen on the TV or laptop. The terminal prints a second URL for
-guests: they open it on their phones, type a name, and get one big BUZZ button.
-Everyone needs to be on the same wifi.
+For development, with hot reloading:
+
+```bash
+npm run dev          # http://localhost:5173
+npm run buzz-server  # second terminal, only if you want phone buzzers
+```
 
 ## How to play
 

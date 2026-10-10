@@ -170,16 +170,86 @@
   color: var(--c-ink-faint);
 }
 
-/* --- Phone buzzers banner ------------------------------------------------ */
+/* --- Phone buzzers / QR join panel --------------------------------------- */
 
-.linkRow {
+.join {
+  padding: var(--sp-5);
+  display: grid;
+  gap: var(--sp-4);
+}
+
+.joinHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-2) var(--sp-4);
+}
+
+.joinStatus {
+  display: flex;
+  align-items: center;
+  font-size: var(--t-sm);
+  color: var(--c-ink-soft);
+}
+
+.joinBody {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--sp-2) var(--sp-4);
-  padding-top: var(--sp-3);
-  border-top: 1px solid var(--s-edge-soft);
+  gap: var(--sp-5);
+}
+
+/* White field around the code: QR scanners need the quiet zone and the
+   contrast, so this deliberately breaks the dark theme. */
+.qrFrame {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  padding: var(--sp-3);
+  background: #fff;
+  border-radius: var(--r-md);
+  box-shadow: var(--e-mid), 0 0 32px rgba(126, 249, 227, 0.28);
+}
+
+.qrFrame img {
+  display: block;
+  width: 200px;
+  height: 200px;
+  image-rendering: pixelated;
+}
+
+.joinText {
+  flex: 1 1 16rem;
+  min-width: 0;
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.joinBig {
+  font-family: var(--f-display);
+  font-size: var(--t-lg);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--c-seafoam);
+}
+
+.joinHint {
   font-size: var(--t-sm);
+  line-height: 1.6;
+  color: var(--c-ink-soft);
+}
+
+.joinCode {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.95em;
+  color: var(--c-seafoam);
+  background: var(--s-sunken);
+  border-radius: var(--r-sm);
+  user-select: all;
+  word-break: break-all;
 }
 
 .dot {
@@ -194,15 +264,6 @@
 .dotLive {
   background: var(--c-seafoam);
   box-shadow: 0 0 10px var(--c-seafoam);
-}
-
-.joinUrl {
-  padding: 0.15em 0.6em;
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-  color: var(--c-seafoam);
-  background: var(--s-sunken);
-  border-radius: var(--r-sm);
-  user-select: all;
 }
 
 /* --- Board grid ---------------------------------------------------------- */
