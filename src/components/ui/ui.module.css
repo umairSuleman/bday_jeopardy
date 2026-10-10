@@ -1,0 +1,141 @@
+/* --- Panel --------------------------------------------------------------- */
+
+.panel {
+  position: relative;
+  background: var(--s-panel);
+  border: 1px solid var(--s-edge-soft);
+  border-radius: var(--r-lg);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--e-mid);
+}
+
+/* Soft pearl highlight along the top edge. */
+.panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(253, 246, 255, 0.07), transparent 42%);
+}
+
+.panelGlow {
+  border-color: var(--s-edge);
+  box-shadow: var(--glow-teal), var(--e-high);
+}
+
+/* --- Button -------------------------------------------------------------- */
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: 0.68em 1.4em;
+  font-family: var(--f-ui);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-ink);
+  background: rgba(20, 57, 95, 0.7);
+  border: 1px solid var(--s-edge-soft);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-mid) var(--ease-out),
+    background var(--dur-mid) var(--ease-out),
+    border-color var(--dur-mid) var(--ease-out);
+}
+
+.btn:hover:not(:disabled) {
+  background: rgba(31, 209, 195, 0.18);
+  border-color: var(--s-edge);
+  box-shadow: var(--glow-teal);
+  transform: translateY(-2px);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.primary {
+  color: #05121f;
+  background: var(--g-iridescent);
+  background-size: 300% 100%;
+  border-color: transparent;
+  animation: shimmer-slide 9s linear infinite;
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--g-iridescent);
+  background-size: 300% 100%;
+  box-shadow: var(--glow-orchid);
+}
+
+.good {
+  color: var(--c-seafoam);
+  border-color: rgba(126, 249, 227, 0.5);
+}
+
+.good:hover:not(:disabled) {
+  background: rgba(126, 249, 227, 0.16);
+}
+
+.bad {
+  color: var(--c-rose);
+  border-color: rgba(255, 143, 216, 0.5);
+}
+
+.bad:hover:not(:disabled) {
+  background: rgba(255, 143, 216, 0.16);
+}
+
+.ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--c-ink-soft);
+}
+
+.ghost:hover:not(:disabled) {
+  color: var(--c-ink);
+  background: rgba(168, 202, 221, 0.1);
+  box-shadow: none;
+}
+
+/* --- Kbd ----------------------------------------------------------------- */
+
+.kbd {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.85em;
+  padding: 0.2em 0.42em;
+  font-family: var(--f-ui);
+  font-size: 0.82em;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--c-gold);
+  background: rgba(3, 11, 22, 0.8);
+  border: 1px solid rgba(255, 217, 138, 0.4);
+  border-bottom-width: 3px;
+  border-radius: 7px;
+}
+
+/* --- Section label ------------------------------------------------------- */
+
+.label {
+  margin: 0;
+  font-family: var(--f-ui);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--c-ink-faint);
+}

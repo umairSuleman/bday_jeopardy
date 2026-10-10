@@ -1,0 +1,403 @@
+.shell {
+  width: min(1200px, 94vw);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: var(--sp-5) 0 var(--sp-6);
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  gap: var(--sp-5);
+}
+
+/* --- Header -------------------------------------------------------------- */
+
+.head {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.back {
+  justify-self: start;
+}
+
+.meta {
+  text-align: center;
+}
+
+.category {
+  font-family: var(--f-display);
+  font-size: var(--t-lg);
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--c-pearl);
+}
+
+.value {
+  margin-top: var(--sp-1);
+  font-family: var(--f-display);
+  font-size: var(--t-xl);
+  font-weight: 900;
+  color: var(--c-gold);
+  text-shadow: var(--glow-gold);
+}
+
+/* --- Clue card ----------------------------------------------------------- */
+
+.main {
+  display: grid;
+  align-content: center;
+  gap: var(--sp-5);
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  min-height: min(50vh, 25rem);
+  padding: var(--sp-7) clamp(var(--sp-5), 5vw, var(--sp-8)) var(--sp-6);
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: var(--sp-5);
+}
+
+/* Iridescent top edge. */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--g-iridescent);
+  background-size: 300% 100%;
+  animation: shimmer-slide 9s linear infinite;
+}
+
+.progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(3, 11, 22, 0.6);
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--g-iridescent);
+  background-size: 300% 100%;
+  box-shadow: 0 0 14px rgba(126, 249, 227, 0.75);
+  transition: width 0.2s linear;
+  animation: shimmer-slide 9s linear infinite;
+}
+
+.text {
+  max-width: 30ch;
+  font-family: var(--f-clue);
+  font-size: var(--t-clue);
+  font-weight: 500;
+  line-height: 1.45;
+  text-align: center;
+  text-wrap: balance;
+  color: var(--c-pearl);
+  text-shadow: 0 0 40px rgba(123, 92, 255, 0.4);
+}
+
+/* Each word fades and floats up as it lands. Spacing comes from the margin
+   rather than whitespace, so inline-block words wrap predictably. */
+.word {
+  display: inline-block;
+  margin-right: 0.28em;
+  animation: wordIn 0.44s var(--ease-out) both;
+}
+
+@keyframes wordIn {
+  from {
+    opacity: 0;
+    filter: blur(9px);
+    transform: translateY(0.4em) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+}
+
+/* The newest word gets a brief glitter kiss before settling to pearl. */
+.wordFresh {
+  color: var(--c-seafoam);
+  text-shadow: 0 0 24px rgba(126, 249, 227, 0.85);
+  transition: color 0.9s ease 0.25s, text-shadow 0.9s ease 0.25s;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--c-ink-faint);
+}
+
+.statusDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--c-seafoam);
+  box-shadow: 0 0 12px var(--c-seafoam);
+  animation: pulseDot 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  50% {
+    opacity: 0.25;
+    transform: scale(0.72);
+  }
+}
+
+.statusDotPaused {
+  background: var(--c-gold);
+  box-shadow: 0 0 12px var(--c-gold);
+  animation: none;
+}
+
+.statusDotDone {
+  background: var(--c-orchid);
+  box-shadow: 0 0 12px var(--c-orchid);
+  animation: none;
+}
+
+/* --- Veil ---------------------------------------------------------------- */
+
+.veil {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  gap: var(--sp-2);
+  text-align: center;
+  /* Opaque enough that the clue behind it is genuinely hidden, not just
+     softened: a half-read clue is worse than no clue. */
+  background: rgba(3, 11, 22, 0.93);
+  backdrop-filter: blur(14px);
+  animation: veilIn 0.22s var(--ease-out) both;
+}
+
+@keyframes veilIn {
+  from {
+    opacity: 0;
+  }
+}
+
+.veilLabel {
+  font-family: var(--f-display);
+  font-size: clamp(2rem, 7vw, 4.2rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.veilHint {
+  font-size: var(--t-sm);
+  color: var(--c-ink-soft);
+}
+
+/* --- Answer -------------------------------------------------------------- */
+
+.answer {
+  padding: var(--sp-5) var(--sp-6);
+  text-align: center;
+  display: grid;
+  gap: var(--sp-2);
+  animation: wordIn 0.5s var(--ease-out) both;
+}
+
+.answerText {
+  font-family: var(--f-clue);
+  font-size: clamp(1.25rem, 2.8vw, 2.1rem);
+  font-weight: 600;
+}
+
+/* --- Buzzers ------------------------------------------------------------- */
+
+.buzz {
+  display: grid;
+  gap: var(--sp-3);
+  justify-items: center;
+}
+
+.buzzList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.buzzer {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-4) var(--sp-2) var(--sp-3);
+  background: var(--s-sunken);
+  border: 1px solid var(--s-edge-soft);
+  border-radius: var(--r-pill);
+  transition: all var(--dur-mid) var(--ease-out);
+}
+
+.buzzerName {
+  font-weight: 700;
+}
+
+.buzzerScore {
+  font-family: var(--f-display);
+  font-weight: 700;
+  color: var(--c-gold);
+  font-variant-numeric: tabular-nums;
+}
+
+.buzzerActive {
+  background: rgba(126, 249, 227, 0.18);
+  border-color: var(--c-seafoam);
+  box-shadow: var(--glow-teal);
+  transform: scale(1.05);
+}
+
+.buzzerLocked {
+  opacity: 0.38;
+}
+
+.buzzerLocked .buzzerName {
+  text-decoration: line-through;
+}
+
+.empty {
+  font-size: var(--t-sm);
+  font-style: italic;
+  color: var(--c-ink-faint);
+}
+
+/* --- Ruling -------------------------------------------------------------- */
+
+.ruling {
+  width: 100%;
+  padding: var(--sp-4) var(--sp-5);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4) var(--sp-6);
+  animation: wordIn 0.3s var(--ease-out) both;
+}
+
+.rulingWho {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.rulingName {
+  font-family: var(--f-display);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 900;
+  color: var(--c-seafoam);
+  text-shadow: 0 0 22px rgba(126, 249, 227, 0.55);
+}
+
+.rulingActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+/* --- Countdown ring ------------------------------------------------------ */
+
+.timer {
+  position: relative;
+  width: 4.5rem;
+  height: 4.5rem;
+  display: grid;
+  place-items: center;
+}
+
+.timerSvg {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+}
+
+.timerTrack,
+.timerFill {
+  fill: none;
+  stroke-width: 9;
+  stroke-linecap: round;
+}
+
+.timerTrack {
+  stroke: rgba(168, 202, 221, 0.18);
+}
+
+.timerFill {
+  stroke: var(--c-seafoam);
+  filter: drop-shadow(0 0 7px rgba(126, 249, 227, 0.8));
+  transition: stroke 0.3s ease;
+}
+
+.timerWarn {
+  stroke: var(--c-gold);
+  filter: drop-shadow(0 0 7px rgba(255, 217, 138, 0.8));
+}
+
+.timerDanger {
+  stroke: var(--c-rose);
+  filter: drop-shadow(0 0 9px rgba(255, 143, 216, 0.85));
+}
+
+.timerNum {
+  position: relative;
+  font-family: var(--f-display);
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: var(--c-pearl);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Footer -------------------------------------------------------------- */
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-3);
+}
+
+@media (max-width: 760px) {
+  .head {
+    grid-template-columns: auto 1fr;
+  }
+
+  .headSpacer {
+    display: none;
+  }
+
+  .meta {
+    text-align: right;
+  }
+
+  .card {
+    min-height: 38vh;
+    padding: var(--sp-6) var(--sp-4) var(--sp-5);
+  }
+
+  .foot > *,
+  .rulingActions > * {
+    flex: 1 1 auto;
+  }
+}

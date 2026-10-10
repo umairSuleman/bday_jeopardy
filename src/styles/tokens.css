@@ -1,0 +1,85 @@
+/* ==========================================================================
+   Design tokens. Every component pulls from here, nothing hardcodes a colour.
+   ========================================================================== */
+
+:root {
+  /* --- Palette: deep water to iridescent shell --- */
+  --c-abyss: #030b16;
+  --c-deep: #07192f;
+  --c-mid: #0d2a4a;
+  --c-shelf: #14395f;
+
+  --c-teal: #1fd1c3;
+  --c-seafoam: #7ef9e3;
+  --c-violet: #7b5cff;
+  --c-orchid: #d06bff;
+  --c-rose: #ff8fd8;
+  --c-pearl: #fdf6ff;
+  --c-gold: #ffd98a;
+
+  --c-ink: #eafaff;
+  --c-ink-soft: #a8cadd;
+  --c-ink-faint: #6b90a8;
+
+  /* --- Gradients --- */
+  --g-iridescent: linear-gradient(
+    110deg,
+    var(--c-seafoam) 0%,
+    var(--c-teal) 20%,
+    var(--c-violet) 46%,
+    var(--c-orchid) 68%,
+    var(--c-rose) 85%,
+    var(--c-seafoam) 100%
+  );
+  --g-shell: linear-gradient(160deg, rgba(126, 249, 227, 0.14), rgba(123, 92, 255, 0.1));
+
+  /* --- Surfaces --- */
+  --s-panel: rgba(13, 42, 74, 0.55);
+  --s-panel-solid: rgba(9, 29, 52, 0.92);
+  --s-sunken: rgba(3, 11, 22, 0.55);
+  --s-edge: rgba(126, 249, 227, 0.22);
+  --s-edge-soft: rgba(168, 202, 221, 0.14);
+
+  /* --- Elevation & glow --- */
+  --e-low: 0 4px 16px rgba(2, 8, 18, 0.4);
+  --e-mid: 0 14px 38px rgba(2, 8, 18, 0.5);
+  --e-high: 0 28px 70px rgba(2, 8, 18, 0.62);
+  --glow-teal: 0 0 28px rgba(31, 209, 195, 0.4);
+  --glow-orchid: 0 0 30px rgba(208, 107, 255, 0.4);
+  --glow-gold: 0 0 26px rgba(255, 217, 138, 0.38);
+
+  /* --- Type --- */
+  --f-display: 'Cinzel', Georgia, serif;
+  --f-clue: 'Fraunces', Georgia, serif;
+  --f-ui: 'Quicksand', 'Avenir Next', system-ui, sans-serif;
+
+  --t-xs: 0.74rem;
+  --t-sm: 0.86rem;
+  --t-md: 1rem;
+  --t-lg: clamp(1.1rem, 1.6vw, 1.35rem);
+  --t-xl: clamp(1.4rem, 2.6vw, 2.1rem);
+  --t-display: clamp(2.2rem, 6vw, 4.4rem);
+  --t-clue: clamp(1.35rem, 3vw, 2.5rem);
+
+  /* --- Spacing: 4px scale --- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+
+  /* --- Radii --- */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+
+  /* --- Motion --- */
+  --ease-out: cubic-bezier(0.22, 0.85, 0.28, 1);
+  --dur-fast: 0.16s;
+  --dur-mid: 0.3s;
+  --dur-slow: 0.6s;
+}
