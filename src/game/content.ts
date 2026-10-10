@@ -9,95 +9,100 @@ export const GAME: GameContent = {
   subtitle: 'Birthday Edition',
 
   categories: [
+    /*
+     * The answers in this category are personal, so they are left as TODOs on
+     * purpose rather than guessed at. Fill each `response` in before playing.
+     */
     {
-      name: 'Birthday Classics',
+      name: 'Mahek Questions',
       clues: [
         {
           value: 200,
-          clue: 'The melody of "Happy Birthday to You" was lifted from this classroom greeting song, written by the Hill sisters in 1893.',
-          response: 'What is "Good Morning to All"?'
+          clue: 'The fast food place Mahek always ends up ordering from.',
+          response: 'TODO: fill in the answer'
         },
         {
           value: 400,
-          clue: 'In Mexico, birthdays traditionally begin with this "little mornings" serenade rather than "Happy Birthday."',
-          response: 'What is "Las Mañanitas"?'
+          clue: 'The thing Mahek is most afraid of.',
+          response: 'TODO: fill in the answer'
         },
         {
           value: 600,
-          clue: "Across Latin America, this celebration marks a girl's fifteenth birthday with a gown, a waltz, and a very large party.",
-          response: 'What is a quinceañera?'
+          clue: "Mahek's single biggest pet peeve.",
+          response: 'TODO: fill in the answer'
         },
         {
           value: 800,
-          clue: 'At this Korean first-birthday celebration, the baby is offered a table of symbolic objects, and whatever they grab is said to hint at their future.',
-          response: 'What is doljanchi (or dol)?'
+          clue: "Mahek's very first pet, and the name it went by. Both halves are needed.",
+          response: 'TODO: fill in the answer'
         },
         {
           value: 1000,
-          clue: 'In a room of just 23 people, the odds that two of them share a birthday climb past 50 percent, a result known as the birthday this.',
-          response: 'What is the birthday paradox (or problem)?'
+          clue: "Name one of Mahek's five favourite songs. Any of the top five counts.",
+          response: 'TODO: fill in the answer (any of the top five)'
         }
       ]
     },
 
     {
-      name: 'Cake & Candles',
+      name: 'Pop Culture',
       clues: [
         {
           value: 200,
-          clue: 'Sodium bicarbonate is the chemical name for this pantry leavener that gives a cake its lift.',
-          response: 'What is baking soda?'
+          clue: 'This billionaire and his then-partner Grimes named their son X Æ A-12.',
+          response: 'Who is Elon Musk?'
         },
         {
           value: 400,
-          clue: 'Baked in a tube pan from whipped egg whites with no butter at all, this cloud of a dessert has a heavenly name.',
-          response: 'What is angel food cake?'
+          clue: 'At the 2009 MTV Video Music Awards, he grabbed the mic from Taylor Swift to insist Beyoncé should have won.',
+          response: 'Who is Kanye West?'
         },
         {
           value: 600,
-          clue: 'Layers of chocolate sponge, whipped cream, and kirsch-soaked cherries make up this German cake named for a forest.',
-          response: 'What is Black Forest cake?'
+          clue: 'Born in 1979, she is the eldest of the Kardashian sisters.',
+          response: 'Who is Kourtney Kardashian?'
         },
         {
           value: 800,
-          clue: 'Meaning "burnt cream" in French, this custard gets a torched sugar crust just before serving.',
-          response: 'What is crème brûlée?'
+          clue: 'In one of reality television\'s most quoted meltdowns, she lost a diamond earring in the ocean in Bora Bora.',
+          response: 'Who is Kim Kardashian?'
         },
         {
           value: 1000,
-          clue: 'Its name means "a thousand leaves" in French, and it stacks puff pastry with pastry cream.',
-          response: 'What is a mille-feuille?'
+          clue: 'This South Korean film became the first in a language other than English to win Best Picture.',
+          response: 'What is "Parasite"?'
         }
       ]
     },
 
     {
-      name: 'Pop Culture Birthdays',
+      name: 'Music',
       clues: [
         {
           value: 200,
-          clue: 'This Beatles track from the White Album is built almost entirely around the line "they say it\'s your birthday."',
-          response: 'What is "Birthday"?'
+          clue: '"I tried so hard and got so far, but in the end it doesn\'t even matter" comes from this band\'s 2000 breakout.',
+          response: 'Who is Linkin Park?'
         },
         {
           value: 400,
-          clue: "In this 1984 John Hughes film, Samantha Baker's family is so consumed by her sister's wedding that they forget her sixteenth birthday.",
-          response: 'What is "Sixteen Candles"?'
+          clue: 'Justin Bieber released "Baby," featuring Ludacris, in this year.',
+          response: 'What is 2010?'
         },
         {
           value: 600,
-          clue: 'In 1962, Marilyn Monroe purred "Happy Birthday, Mr. President" at a Madison Square Garden gala for this man.',
-          response: 'Who is John F. Kennedy?'
+          // TODO: swap in the lyric from the "complete the song" list.
+          clue: 'Complete the song: the host will read the line aloud.',
+          response: 'TODO: fill in the lyric and its song'
         },
         {
           value: 800,
-          clue: '"Go, go, go, go... it\'s your birthday" opens this rapper\'s 2003 smash "In da Club."',
-          response: 'Who is 50 Cent?'
+          clue: 'These two artists, one a Memphis rapper and one an R&B singer, are both featured on Drake\'s "Rich Baby Daddy."',
+          response: 'Who are Sexyy Red and SZA?'
         },
         {
           value: 1000,
-          clue: "Stevie Wonder's 1980 song \"Happy Birthday\" was a campaign anthem for a national holiday honouring this man.",
-          response: 'Who is Martin Luther King Jr.?'
+          clue: 'Mixtapes aside, this 2010 record was Drake\'s first proper studio album.',
+          response: 'What is "Thank Me Later"?'
         }
       ]
     },
