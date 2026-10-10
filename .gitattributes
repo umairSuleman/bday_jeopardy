@@ -1,7 +1,10 @@
 * text=auto
 
-# cmd.exe can mis-parse batch files with LF endings, so force CRLF.
-*.bat text eol=crlf
+# cmd.exe can mis-parse batch files with LF endings, so these must stay CRLF.
+# Marked -text rather than eol=crlf on purpose: GitHub's "Download ZIP" exports
+# the stored blob without applying eol conversion, so the CRLF has to be in the
+# blob itself for a ZIP download to work on Windows.
+*.bat -text
 
 # Shell launchers must keep LF, or the shebang breaks.
 *.command text eol=lf
