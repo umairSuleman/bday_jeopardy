@@ -107,18 +107,18 @@ export const GAME: GameContent = {
       clues: [
         {
           value: 200,
-          clue: 'This force keeps your feet on the ground and brings a tossed ball back down.',
-          response: 'What is gravity?'
+          clue: 'Water vapour cooling back into liquid droplets is this step of the water cycle, the one that forms clouds and dew.',
+          response: 'What is condensation?'
         },
         {
           value: 400,
-          clue: 'Heat turns liquid water into vapour through this process, the one that lifts water into the clouds.',
-          response: 'What is evaporation?'
+          clue: 'Plants trap sunlight with this green pigment, which is also what gives leaves their colour.',
+          response: 'What is chlorophyll?'
         },
         {
           value: 600,
-          clue: 'Plants make their own food out of sunlight, water and carbon dioxide using this process.',
-          response: 'What is photosynthesis?'
+          clue: 'Measured in kilograms, this property of an object is exactly the same on the Moon even though its weight is not.',
+          response: 'What is mass?'
         },
         {
           value: 800,
@@ -158,8 +158,8 @@ export const GAME: GameContent = {
         },
         {
           value: 1000,
-          clue: 'This narrow strait splits Istanbul between Europe and Asia.',
-          response: 'What is the Bosphorus?'
+          clue: 'Africa\'s highest peak, Mount Kilimanjaro, stands in this country rather than in neighbouring Kenya.',
+          response: 'What is Tanzania?'
         }
       ]
     },
@@ -169,8 +169,8 @@ export const GAME: GameContent = {
       clues: [
         {
           value: 200,
-          clue: 'Elsa lets her powers loose while belting "Let It Go" in this 2013 hit.',
-          response: 'What is "Frozen"?'
+          clue: 'A glass slipper left behind on the palace steps belongs to this heroine.',
+          response: 'Who is Cinderella?'
         },
         {
           value: 400,
@@ -184,8 +184,8 @@ export const GAME: GameContent = {
         },
         {
           value: 800,
-          clue: 'Mickey Mouse made his synchronised-sound debut piloting a riverboat in this 1928 short.',
-          response: 'What is "Steamboat Willie"?'
+          clue: 'This 1940 film set animation to classical music, and cast Mickey as a sorcerer\'s apprentice.',
+          response: 'What is "Fantasia"?'
         },
         {
           value: 1000,
